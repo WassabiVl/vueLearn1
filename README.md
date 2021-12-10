@@ -22,3 +22,6 @@ yarn lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### the graph used
+https://vue3-chart-v2.netlify.app/guide/Examples.html#chart-with-api-data
