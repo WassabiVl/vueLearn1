@@ -22,7 +22,7 @@ export default defineComponent({
           ]
         },
         chartOptions: {
-          responsive: false
+          responsive: true
         }
       }
     }
