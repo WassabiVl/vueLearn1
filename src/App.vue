@@ -6,6 +6,7 @@
 </template>
 
 <script>
+import { defineComponent } from 'vue'
 import HelloWorld from './components/HelloWorld.vue'
 import DatepickerCom from './components/DatePickerCom'
 import Selectfields from './components/Selectfields'

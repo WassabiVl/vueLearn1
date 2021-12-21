@@ -1,5 +1,4 @@
 <template>
-  <Selectfields>
   <div>
     <h1>Vue Select Comparison</h1>
     <div class="select-container">
@@ -7,16 +6,12 @@
         <h3>Vue Multiselect</h3>
         <label><strong>Users:</strong></label>
         <multiselect
-            v-model="multiSelectUser"
+            v-model="value"
             :options="options"
-            track-by="id"
-            label="name"
-            :internal-search="false"
-            :placeholder="`Type to search`"
-            @search-change="search"
-            :loading="loading"
-        >
-        </multiselect>
+            :searchable="false"
+            :close-on-select="false"
+            :show-labels="false" placeholder="Pick a value">
+</multiselect>
       </fieldset>
       <fieldset>
         <h3>Vue Select</h3>
@@ -30,25 +25,35 @@
       </fieldset>
     </div>
   </div>
-  </Selectfields>
 </template>
 
 <script>
+import vSelect from 'vue-select';
+import Multiselect from 'vue-multiselect';
 export default {
   name: "Selectfields",
+  components: { vSelect, Multiselect},
   data() {
     return {
+      // options: ['Select option', 'options', 'selected', 'mulitple', 'label', 'searchable', 'clearOnSelect', 'hideSelected', 'maxHeight', 'allowEmpty', 'showLabels', 'onChange', 'touched'],
       options: [],
       loading: false,
       multiSelectUser: null,
-      vSelectUser: null
+      vSelectUser: null,
+      value: ''
+
     };
   },
-  mounted: function() {
-    this.search();
+  created(){
+    console.log(this);
+  },
+  mounted () {
+    console.log(this.value, "VALUE");
+    this.options = ['Select option', 'options', 'selected', 'mulitple', 'label', 'searchable', 'clearOnSelect', 'hideSelected', 'maxHeight', 'allowEmpty', 'showLabels', 'onChange', 'touched']
+    // this.search();
   },
   methods: {
-    search: function(queryString) {
+    search(queryString) {
       this.loading = true;
       fetch("https://jsonplaceholder.typicode.com/users")
           .then(response => response.json())
