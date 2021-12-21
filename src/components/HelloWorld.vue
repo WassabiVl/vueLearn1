@@ -13,39 +13,77 @@ export default defineComponent({
           datasets: [
             {
               label: 'Temperature',
-              data: [37, 35, 37, 35, 37, 35, 37, 35, 37, 35, 37, 35, 37, 35, 37, 35, 37, 35, 37, 35, 37, 35, 37, 35],
+              data: [37, 35, 37, 35, 37, 35, 37, 35, 37, 35, 37, 35, 37, 35, 37, 35],
               fill: false,
               backgroundColor: "transparent",
               borderColor: "red",
-              borderWidth: 1
+              borderDash: [5, 5],
+              borderWidth: 1,
+              yAxisID: 'y',
             },
             {
               label: 'Humidity',
-              data: [100, 25, 100, 25, 100, 25, 100, 25, 100, 25, 100, 25, 100, 25, 100, 25, 100, 25, 100, 25, 100, 25],
+              data: [100, 25, 100, 25, 50, 10, 10, 10, 50, 25, 100, 25, 100, 25, 100, 25, 100, 25, 100, 25, 100, 25],
+              fill: false,
               backgroundColor: "transparent",
               borderColor: "#36495d",
-              fill: false,
-              borderWidth: 1
+              borderWidth: 1,
+              yAxisID: 'y1',
             }
           ]
         },
         chartOptions: {
           scales: {
-            yAxes: [{
-              ticks: {
-                beginAtZero: true
-              },
-              gridLines: {
-                display: true
+            yAxes: [
+             {
+               display: true,
+               id: 'y',
+               type: 'linear',
+               position: 'left',
+                ticks: {
+                  beginAtZero: true
+                        },
+                gridLines: {
+                display: true,
+                            },
+
+               title: {
+                 display: true,
+                 text: 'Value',
+                 color: '#191',
+                 font: {
+                   family: 'Times',
+                   size: 20,
+                   style: 'normal',
+                   lineHeight: 1.2
+                 },
+                 padding: {top: 30, left: 0, right: 0, bottom: 0}
+               }
+
+            },
+              {
+                id: 'y1',
+                type: 'linear',
+                display: true,
+                position: 'right',
+                ticks: {
+                  beginAtZero: true
+                },
+                gridLines: {
+                  display: true,
+                  drawOnChartArea: false, // when false, only the grid lines for one axis show up
+                }
               }
-            }],
+
+            ],
+
+
             xAxes: [ {
               gridLines: {
                 display: false
               }
             }]
           },
-
           responsive: true,
           maintainAspectRatio: false
         }

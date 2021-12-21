@@ -1,20 +1,25 @@
 <template>
   <h3>Trending Information Monitoring System </h3>
-  <HelloWorld :width="1600" :height="500" />
   <DatepickerCom />
+   <HelloWorld :width="1600" :height="500" />
+  <Selectfields />
 </template>
 
 <script>
-import { defineComponent } from 'vue'
 import HelloWorld from './components/HelloWorld.vue'
-import DatepickerCom from './components/DatePickerCom';
+import DatepickerCom from './components/DatePickerCom'
+import Selectfields from './components/Selectfields'
+
 export default defineComponent({
   name: 'App',
   components: {
     HelloWorld,
-    DatepickerCom
+    DatepickerCom,
+    Selectfields
   }
 })
+
+
 </script>
 
 <style>
@@ -32,4 +37,6 @@ h3 {
   color: turquoise;
   font-size: 2rem;
 }
+
+
 </style>
