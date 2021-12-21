@@ -44,13 +44,11 @@ export default {
 
     };
   },
-  created(){
-    console.log(this);
-  },
+
   mounted () {
     console.log(this.value, "VALUE");
-    this.options = ['Select option', 'options', 'selected', 'mulitple', 'label', 'searchable', 'clearOnSelect', 'hideSelected', 'maxHeight', 'allowEmpty', 'showLabels', 'onChange', 'touched']
-    // this.search();
+    // this.options = ['Select option', 'options', 'selected', 'mulitple', 'label', 'searchable', 'clearOnSelect', 'hideSelected', 'maxHeight', 'allowEmpty', 'showLabels', 'onChange', 'touched']
+    this.search();
   },
   methods: {
     search(queryString) {
